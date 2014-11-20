@@ -114,8 +114,6 @@
 .field public installLocation:I
 
 .field public isThemeable:Z
-
-.field public isThemeable:Z
     .annotation build Landroid/annotation/LewaHook;
         value = .enum Landroid/annotation/LewaHook$LewaHookType;->NEW_FIELD:Landroid/annotation/LewaHook$LewaHookType;
     .end annotation
@@ -373,6 +371,8 @@
 
     .line 657
     invoke-direct {p0, p1}, Landroid/content/pm/PackageItemInfo;-><init>(Landroid/os/Parcel;)V
+
+    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
     .line 99
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I

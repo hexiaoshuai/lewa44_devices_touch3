@@ -656,6 +656,15 @@
     .prologue
     .line 1708
     .local p1, cache:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
+    invoke-static {p1, p2}, Landroid/content/res/Resources$Injector;->needNewResources(Landroid/util/LongSparseArray;I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_lewa0
+
+    goto :cond_1
+
+    :cond_lewa0
     const/4 v4, 0x0
 
     invoke-static {p2, v4}, Landroid/content/res/Configuration;->needNewResources(II)Z
@@ -7496,38 +7505,6 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     throw v2
-.end method
-
-.method public final updateStringCache()V
-    .locals 2
-
-    .prologue
-    .line 2122
-    iget-object v1, p0, Landroid/content/res/Resources;->mAccessLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 2123
-    :try_start_0
-    iget-object v0, p0, Landroid/content/res/Resources;->mAssets:Landroid/content/res/AssetManager;
-
-    invoke-virtual {v0}, Landroid/content/res/AssetManager;->recreateStringBlocks()V
-
-    .line 2124
-    monitor-exit v1
-
-    .line 2125
-    return-void
-
-    .line 2124
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
 .method public final updateStringCache()V

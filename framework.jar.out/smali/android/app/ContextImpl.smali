@@ -741,15 +741,6 @@
     .line 2074
     iput-object p3, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
 
-    .line 2075
-    new-instance v1, Landroid/app/ContextImpl$ApplicationContentResolver;
-
-    move-object/from16 v0, p5
-
-    invoke-direct {v1, p0, p2, v0}, Landroid/app/ContextImpl$ApplicationContentResolver;-><init>(Landroid/content/Context;Landroid/app/ActivityThread;Landroid/os/UserHandle;)V
-
-    iput-object v1, p0, Landroid/app/ContextImpl;->mContentResolver:Landroid/app/ContextImpl$ApplicationContentResolver;
-
     .line 2076
     invoke-static {}, Landroid/app/ResourcesManager;->getInstance()Landroid/app/ResourcesManager;
 
@@ -893,6 +884,14 @@
 
     .line 2123
     :goto_1
+    new-instance v1, Landroid/app/ContextImpl$ApplicationContentResolver;
+
+    move-object/from16 v0, p5
+
+    invoke-direct {v1, p0, p2, v0}, Landroid/app/ContextImpl$ApplicationContentResolver;-><init>(Landroid/content/Context;Landroid/app/ActivityThread;Landroid/os/UserHandle;)V
+
+    iput-object v1, p0, Landroid/app/ContextImpl;->mContentResolver:Landroid/app/ContextImpl$ApplicationContentResolver;
+
     return-void
 
     .line 2098
@@ -3218,6 +3217,9 @@
 .method public createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
     .locals 9
     .parameter "display"
+    .annotation build Landroid/annotation/LewaHook;
+        value = .enum Landroid/annotation/LewaHook$LewaHookType;->CHANGE_CODE:Landroid/annotation/LewaHook$LewaHookType;
+    .end annotation
 
     .prologue
     .line 1984
@@ -5408,44 +5410,6 @@
 
     .line 2136
     return-void
-.end method
-
-.method refreshResourcesIfNecessary()V
-    .locals 2
-
-    .prologue
-    .line 671
-    iget-object v0, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    if-ne v0, v1, :cond_1
-
-    .line 678
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 675
-    :cond_1
-    iget-object v0, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
-
-    invoke-virtual {v0}, Landroid/app/LoadedApk;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
-
-    move-result-object v0
-
-    iget-boolean v0, v0, Landroid/content/res/CompatibilityInfo;->isThemeable:Z
-
-    if-eqz v0, :cond_0
-
-    .line 676
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/app/ContextImpl;->mTheme:Landroid/content/res/Resources$Theme;
-
-    goto :goto_0
 .end method
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;

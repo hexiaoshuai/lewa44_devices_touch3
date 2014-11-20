@@ -1,0 +1,4 @@
+/temp/*
+/out/*
+stockrom.zip
+.delete-zip-file-when-clean

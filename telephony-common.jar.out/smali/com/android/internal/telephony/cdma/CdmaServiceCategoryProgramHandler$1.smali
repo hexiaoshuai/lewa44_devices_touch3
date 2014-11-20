@@ -301,13 +301,13 @@
     goto/16 :goto_0
 
     .line 183
-    .end local v2           #destAddr:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
     :catch_0
     move-exception v10
 
     goto/16 :goto_0
 
     .line 178
+    .end local v2           #destAddr:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
     :catch_1
     move-exception v4
 
@@ -327,7 +327,13 @@
     :try_start_3
     invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
     :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+
+    goto/16 :goto_0
+
+    .line 183
+    :catch_2
+    move-exception v10
 
     goto/16 :goto_0
 
@@ -340,14 +346,14 @@
     :try_start_4
     invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
     :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    .line 181
+    .line 184
     :goto_1
     throw v10
 
     .line 183
-    :catch_2
+    :catch_3
     move-exception v11
 
     goto :goto_1

@@ -61,7 +61,7 @@
 
 .field public static final LIGHT_FULLMOON:F = 0.25f
 
-.field public static final LIGHT_NO_MOON:F = 0.0010f
+.field public static final LIGHT_NO_MOON:F = 0.001f
 
 .field public static final LIGHT_OVERCAST:F = 10000.0f
 

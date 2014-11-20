@@ -221,7 +221,7 @@
 
 .field public static final NAVIGATION_BAR_UNHIDE:I = 0x20000000
 
-.field private static final NONZERO_EPSILON:F = 0.0010f
+.field private static final NONZERO_EPSILON:F = 0.001f
 
 .field private static final NOT_FOCUSABLE:I = 0x0
 

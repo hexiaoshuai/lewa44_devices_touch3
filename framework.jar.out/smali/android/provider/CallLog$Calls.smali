@@ -82,8 +82,6 @@
 
 .field public static final PRESENTATION_UNKNOWN:I = 0x3
 
-.field public static final SUBSCRIPTION:Ljava/lang/String; = "subscription"
-
 .field public static final SUBSCRIPTION:Ljava/lang/String; = "simid"
     .annotation build Landroid/annotation/LewaHook;
         value = .enum Landroid/annotation/LewaHook$LewaHookType;->CHANGE_CODE:Landroid/annotation/LewaHook$LewaHookType;
@@ -303,15 +301,6 @@
     const/4 v3, 0x1
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v13, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    .line 368
-    const-string/jumbo v2, "subscription"
-
-    invoke-static/range {p8 .. p8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 

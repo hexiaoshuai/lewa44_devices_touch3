@@ -7,8 +7,6 @@ private-phone-apps := BasicDreams \
                       Camera2 \
                       CellBroadcastReceiver \
                       CertInstaller \
-                      com.qualcomm.location \
-                      ConfigPanel \
                       DocumentsUI \
                       Galaxy4 \
                       Gallery2 \
@@ -18,20 +16,15 @@ private-phone-apps := BasicDreams \
                       LiveWallpapers \
                       LiveWallpapersPicker \
                       MagicSmokeWallpapers \
-                      Nfc \
                       NoiseField \
                       PackageInstaller \
-                      OppoNvProcess \
-                      OppoRadioShutdown \
                       PacProcessor \
                       PhaseBeam \
-                      qcrilmsgtunnel \
                       Stk
 
 private-phone-priv-apps := BackupRestoreConfirmation \
                            ProxyHandler \
                            PicoTts \
                            SharedStorageBackup \
-                           Tag \
                            VpnDialogs \
                            WallpaperCropper

@@ -1,4 +1,5 @@
 name="Apollo.apk" certificate="PRESIGNED" private_key=""
+name="CMS.apk" certificate="PRESIGNED" private_key=""
 name="BackupRestoreConfirmation.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
 name="BaiduMap.apk" certificate="PRESIGNED" private_key=""
 name="BaiduSearch.apk" certificate="PRESIGNED" private_key=""

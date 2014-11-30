@@ -538,8 +538,6 @@
 
 .field private mThemeChangeReceiver:Landroid/content/BroadcastReceiver;
 
-.field private mThemeChangeReceiver:Landroid/content/BroadcastReceiver;
-
 .field final mTmpContentRect:Landroid/graphics/Rect;
 
 .field final mTmpDisplayMetrics:Landroid/util/DisplayMetrics;

@@ -144,22 +144,19 @@
     return-void
 .end method
 
-.method public static declared-synchronized of(IIB)Lcom/android/internal/widget/LockPatternView$Cell;
+.method public static declared-synchronized of(II)Lcom/android/internal/widget/LockPatternView$Cell;
     .locals 2
     .parameter "row"
     .parameter "column"
-    .parameter "size"
 
     .prologue
-    .line 174
     const-class v1, Lcom/android/internal/widget/LockPatternView$Cell;
 
     monitor-enter v1
 
     :try_start_0
-    invoke-static {p0, p1, p2}, Lcom/android/internal/widget/LockPatternView$Cell;->checkRange(IIB)V
+    invoke-static {p0, p1}, Lcom/android/internal/widget/LockPatternView$Cell;->checkRange(II)V
 
-    .line 175
     sget-object v0, Lcom/android/internal/widget/LockPatternView$Cell;->sCells:[[Lcom/android/internal/widget/LockPatternView$Cell;
 
     aget-object v0, v0, p0
@@ -172,7 +169,6 @@
 
     return-object v0
 
-    .line 174
     :catchall_0
     move-exception v0
 
@@ -180,69 +176,6 @@
 
     throw v0
 .end method
-
-.method public static updateSize(B)V
-    .locals 4
-    .parameter "size"
-
-    .prologue
-    .line 179
-    filled-new-array {p0, p0}, [I
-
-    move-result-object v2
-
-    const-class v3, Lcom/android/internal/widget/LockPatternView$Cell;
-
-    invoke-static {v3, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [[Lcom/android/internal/widget/LockPatternView$Cell;
-
-    sput-object v2, Lcom/android/internal/widget/LockPatternView$Cell;->sCells:[[Lcom/android/internal/widget/LockPatternView$Cell;
-
-    .line 180
-    const/4 v0, 0x0
-
-    .local v0, i:I
-    :goto_0
-    if-ge v0, p0, :cond_1
-
-    .line 181
-    const/4 v1, 0x0
-
-    .local v1, j:I
-    :goto_1
-    if-ge v1, p0, :cond_0
-
-    .line 182
-    sget-object v2, Lcom/android/internal/widget/LockPatternView$Cell;->sCells:[[Lcom/android/internal/widget/LockPatternView$Cell;
-
-    aget-object v2, v2, v0
-
-    new-instance v3, Lcom/android/internal/widget/LockPatternView$Cell;
-
-    invoke-direct {v3, v0, v1, p0}, Lcom/android/internal/widget/LockPatternView$Cell;-><init>(IIB)V
-
-    aput-object v3, v2, v1
-
-    .line 181
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    .line 180
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 185
-    .end local v1           #j:I
-    :cond_1
-    return-void
-.end method
-
 
 # virtual methods
 .method public getColumn()I

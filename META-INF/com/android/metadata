@@ -1,0 +1,3 @@
+post-build=qcom/cm_touch3/touch3:4.4.4/KTU84Q/hasz:userdebug/test-keys
+post-timestamp=1407659219
+pre-device=touch3

@@ -1600,16 +1600,13 @@
 
     move-result v1
 
-    .line 329
     .local v1, got:I
     invoke-virtual {v5}, Ljava/io/RandomAccessFile;->close()V
 
-    .line 330
     if-gtz v1, :cond_1
 
     move v4, v7
 
-    .line 346
     .end local v1           #got:I
     .end local v5           #raf:Ljava/io/RandomAccessFile;
     .end local v6           #stored:[B
@@ -1617,30 +1614,23 @@
     :goto_0
     return v4
 
-    .line 334
     .restart local v1       #got:I
     .restart local v5       #raf:Ljava/io/RandomAccessFile;
     .restart local v6       #stored:[B
     :cond_1
-    iget-object v8, p0, Lcom/android/server/LockSettingsService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {p1}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;)Ljava/util/List;
 
-    iget-object v9, p0, Lcom/android/server/LockSettingsService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    move-result-object v8
 
-    invoke-virtual {v9, p1}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->patternToHash(Ljava/util/List;)[B
+    invoke-static {v8}, Lcom/android/internal/widget/LockPatternUtils;->patternToHash(Ljava/util/List;)[B
 
     move-result-object v2
 
-    .line 336
     .local v2, hash:[B
     invoke-static {v6, v2}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v4
 
-    .line 337
     .local v4, matched:Z
     if-eqz v4, :cond_0
 
@@ -1650,7 +1640,6 @@
 
     if-nez v8, :cond_0
 
-    .line 338
     invoke-direct {p0, p1, p2}, Lcom/android/server/LockSettingsService;->maybeUpdateKeystore(Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1658,7 +1647,6 @@
 
     goto :goto_0
 
-    .line 341
     .end local v1           #got:I
     .end local v2           #hash:[B
     .end local v4           #matched:Z
@@ -1667,7 +1655,6 @@
     :catch_0
     move-exception v0
 
-    .line 342
     .local v0, fnfe:Ljava/io/FileNotFoundException;
     const-string v8, "LockSettingsService"
 
@@ -1695,14 +1682,11 @@
     :goto_1
     move v4, v7
 
-    .line 346
     goto :goto_0
 
-    .line 343
     :catch_1
     move-exception v3
 
-    .line 344
     .local v3, ioe:Ljava/io/IOException;
     const-string v8, "LockSettingsService"
 
@@ -2173,7 +2157,7 @@
 .end method
 
 .method public setLockPattern(Ljava/lang/String;I)V
-    .locals 4
+    .locals 2
     .parameter "pattern"
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
@@ -2183,61 +2167,26 @@
     .end annotation
 
     .prologue
-    .line 301
     invoke-direct {p0, p2}, Lcom/android/server/LockSettingsService;->checkWritePermission(I)V
 
-    .line 303
     invoke-direct {p0, p1, p2}, Lcom/android/server/LockSettingsService;->maybeUpdateKeystore(Ljava/lang/String;I)V
 
-    .line 305
-    iget-object v2, p0, Lcom/android/server/LockSettingsService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    iget-object v3, p0, Lcom/android/server/LockSettingsService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v3, p1}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/internal/widget/LockPatternUtils;->patternToHash(Ljava/util/List;)[B
+    invoke-static {p1}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v1
 
-    .line 307
-    .local v1, hash:[B
-    invoke-direct {p0, p2}, Lcom/android/server/LockSettingsService;->isDefaultSize(I)Z
+    invoke-static {v1}, Lcom/android/internal/widget/LockPatternUtils;->patternToHash(Ljava/util/List;)[B
 
-    move-result v0
+    move-result-object v0
 
-    .line 308
-    .local v0, defaultSize:Z
-    invoke-direct {p0, p2, v0}, Lcom/android/server/LockSettingsService;->getLockPatternFilename(IZ)Ljava/lang/String;
+    .local v0, hash:[B
+    invoke-direct {p0, p2}, Lcom/android/server/LockSettingsService;->getLockPatternFilename(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {p0, v2, v1}, Lcom/android/server/LockSettingsService;->writeFile(Ljava/lang/String;[B)V
+    invoke-direct {p0, v1, v0}, Lcom/android/server/LockSettingsService;->writeFile(Ljava/lang/String;[B)V
 
-    .line 309
-    if-nez v0, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-direct {p0, p2, v2}, Lcom/android/server/LockSettingsService;->getLockPatternFilename(IZ)Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-direct {p0, v2, v3}, Lcom/android/server/LockSettingsService;->writeFile(Ljava/lang/String;[B)V
-
-    .line 310
     return-void
-
-    .line 309
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
 .end method
 
 .method public setLong(Ljava/lang/String;JI)V
